@@ -1,6 +1,20 @@
 defmodule Paystack.Customer do
+
+	@moduledoc """
+
+	This module contains the public APIs for interfacing with the Paystack's customer endpoint.
+	"""
+
+	## body_params: json format
+	## opts: Keyword list
+	## customer_id: string
+	## customer_code_or_id: string
+	## customer_id_email_or_code: string
+	## risk_action: string
+
 	@endpoint "customer/"
 
+	## Email field is required in the body_params while others are optional
 	def create_customer(body_params, opts \\ []) do		
 		Paystack.request(:post, full_endpoint(), body_params, opts)
 	end
@@ -13,11 +27,13 @@ defmodule Paystack.Customer do
 		Paystack.request(:get, full_endpoint(customer_id), "", opts)
 	end
 
+	## All fields are optional. Only insert the fields you want to update.
 	def update_customer(customer_code_or_id, body_params, opts \\ []) do
 		Paystack.request(:put, full_endpoint(customer_code_or_id), body_params, opts)
 	end
 
-	def blacklist_customer(customer_id_email_or_code, risk_action \\ "allow", opts \\ []) do
+	## The default value of risk_action is "deny" which will blacklist a customer; "allow" will whitelist the customer 
+	def blacklist_customer(customer_id_email_or_code, risk_action \\ "deny", opts \\ []) do
 		body_params = '{"customer": "#{customer_id_email_or_code}", "risk_action": "#{risk_action}"}'
 		Paystack.request(:post, full_endpoint("set_risk_action"), body_params, opts)
 	end
