@@ -35,7 +35,7 @@ defmodule Paystack.Customer do
 
 	## The default value of risk_action is "deny" which will blacklist a customer; "allow" will whitelist the customer 
 	def blacklist_customer(customer_id_email_or_code, risk_action \\ "deny", opts \\ []) do
-		body_params = '{"customer": "#{customer_id_email_or_code}", "risk_action": "#{risk_action}"}'
+		body_params = %{"customer" => customer_id_email_or_code, "risk_action" => risk_action}
 		Paystack.request(:post, full_endpoint("set_risk_action"), body_params, opts)
 	end
 
