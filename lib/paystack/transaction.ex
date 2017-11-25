@@ -4,7 +4,7 @@ defmodule Paystack.Transaction do
 	This module contains the public APIs for interfacing with the Paystack's transaction endpoint.
 	"""
 
-	## body_params: json format
+	## body_params: a map with string keys
 	## opts: Keyword list
 	## reference: string
 	## transaction_id: string
