@@ -2,7 +2,7 @@ defmodule Paystack.Customer do
 
 	@moduledoc """
 
-	This module contains the public APIs for interfacing with the Paystack's customer endpoint.
+	This module contains the public API functions for interfacing with the Paystack's customer endpoint.
 	"""
 
 	## body_params: a map with string keys
