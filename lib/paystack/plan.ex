@@ -2,7 +2,7 @@ defmodule Paystack.Plan do
 
 	@moduledoc """
 
-	This module contains the public APIs for interfacing with the Paystack's plan endpoint.
+	This module contains the public API functions for interfacing with the Paystack's plan endpoint.
 	"""
 
 	## body_params: a map with string keys
