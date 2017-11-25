@@ -5,13 +5,14 @@ defmodule Paystack.Customer do
 	This module contains the public APIs for interfacing with the Paystack's customer endpoint.
 	"""
 
-	## body_params: json format
+	## body_params: a map with string keys
 	## opts: Keyword list
 	## customer_id: string
 	## customer_code_or_id: string
 	## customer_id_email_or_code: string
 	## risk_action: string
 
+	
 	@endpoint "customer/"
 
 	## Email field is required in the body_params while others are optional
