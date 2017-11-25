@@ -1,7 +1,7 @@
 defmodule Paystack.Transaction do
 	@moduledoc """
 
-	This module contains the public APIs for interfacing with the Paystack's transaction endpoint.
+	This module contains the public API functions for interfacing with the Paystack's transaction endpoint.
 	"""
 
 	## body_params: a map with string keys
@@ -10,7 +10,7 @@ defmodule Paystack.Transaction do
 	## transaction_id: string
 	## id: string
 
-	
+
 	@endpoint "transaction/"
 	
 	## amount and email fields are required in the body_params while others are optional
