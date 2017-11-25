@@ -9,7 +9,7 @@ defmodule Paystack do
 	@header [{"Content-Type", "application/json"}, 
 					{"Authorization", "Bearer sk_test_9e0117e99805ee86c7507c5f6ae8ae41449e5312"}]
  
-  def request(action, endpoint, body \\ "", opts) do
+  def request(action, endpoint, body \\ "", opts \\ []) do
     HTTPoison.request(action, full_url(endpoint), body, @header, opts)
     |> handle_response
   end
