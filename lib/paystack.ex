@@ -10,7 +10,7 @@ defmodule Paystack do
 					{"Authorization", "Bearer sk_test_9e0117e99805ee86c7507c5f6ae8ae41449e5312"}]
  
   def request(action, endpoint, body \\ "", opts \\ []) do
-    HTTPoison.request(action, full_url(endpoint), encode_body(body), @header, opts)
+    HTTPoison.request(action, full_url(endpoint), encode_body(body), @header, set_default_timeout(opts))
     |> handle_response
   end
 
@@ -47,5 +47,11 @@ defmodule Paystack do
 
   defp encode_body(body) do
     Poison.encode!(body)
+  end
+
+  ## timeout => used to establish a connection, in milliseconds. Default is 8000(check HTTPoison docs)
+  ## recv_timeout => used when receiving a connection. Default is 5000(check HTTPoison docs) 
+  defp set_default_timeout(opts) do
+    [timeout: 10_000, recv_timeout: 10_000] ++ opts
   end
 end
